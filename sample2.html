@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .partner-slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.partner-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+/* Each slide group = full width */
+.partner-slide-group {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Each logo box */
+.partner-slides img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.partner-slides img:hover {
+    transform: scale(1.1);
+}
+
+/* Prev / Next Buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 10px;
+    font-size: 30px;
+    color: #fff;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Dots */
+.partner-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.partner-dots span {
+    width: 10px;
+    height: 10px;
+    margin: 4px;
+    display: inline-block;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.partner-dots .active {
+    background: #333;
+}
+
+    </style>
+</head>
+<body>
+<div class="partner-slideshow-container">
+    <div class="partner-track" id="partnerTrack">
+
+        <!-- Slide 1 -->
+        <div class="partner-slide-group">
+            <div class="partner-slides"><img src="imgs/084829892-a4ec147f-ae9c-4736-91ac-73d083adb8f3.png"></div>
+            <div class="partner-slides"><img src="imgs/235901_UniMi_logo.avif"></div>
+            <div class="partner-slides"><img src="imgs/DataWizard.png"></div>
+            <div class="partner-slides"><img src="imgs/favo_logo.gif"></div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="partner-slide-group">
+            <div class="partner-slides"><img src="imgs/Logo+HCL+trait_2995-bleu.jpg"></div>
+            <div class="partner-slides"><img src="imgs/logo-fpg-250tr.png"></div>
+            <div class="partner-slides"><img src="imgs/Logo_Charite.svg.png"></div>
+            <div class="partner-slides"><img src="imgs/Screenshot-2020-09-25-at-13.13.06.PNG"></div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="partner-slide-group">
+            <div class="partner-slides"><img src="imgs/Universita-cattolica_512px.png"></div>
+            <div class="partner-slides"><img src="imgs/uoa_logo_gr.svg"></div>
+            <div class="partner-slides"><img src="imgs/UPM-LOGO-68eea845.webp"></div>
+        </div>
+
+    </div>
+
+    <a class="prev" onclick="changeSlide(-1)">❮</a>
+    <a class="next" onclick="changeSlide(1)">❯</a>
+</div>
+
+<div class="partner-dots" id="dotsContainer"></div>
+
+
+
+    
+<script>
+let currentSlide = 0;
+
+const track = document.getElementById("partnerTrack");
+const slides = document.querySelectorAll(".partner-slide-group");
+const dotsContainer = document.getElementById("dotsContainer");
+
+const totalSlides = slides.length;
+
+// Create dots
+for (let i = 0; i < totalSlides; i++) {
+    let dot = document.createElement("span");
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+}
+
+updateSlide();
+
+function changeSlide(n) {
+    currentSlide = (currentSlide + n + totalSlides) % totalSlides;
+    updateSlide();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlide();
+}
+
+function updateSlide() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+    // update dots
+    dotsContainer.querySelectorAll("span")
+        .forEach((dot, idx) => dot.classList.toggle("active", idx === currentSlide));
+}
+</script>
+
+
+
+</body>
+</html>
