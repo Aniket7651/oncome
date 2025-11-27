@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ON-COME - Gallery</title>
+
+    <!-- Font Awesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Teri CSS -->
+    <link rel="stylesheet" href="css/base.css?v=0.3">
+    <link rel="stylesheet" href="css/index.css?v=0.3">
+    <link rel="stylesheet" href="css/responsive.css?v=0.3">
+
+    <style>
+        .page-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #1B4F72;
+            margin: 100px 0 60px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.12);
+        }
+
+        /* LIGHTBOX - FIXED 100% */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.97);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        #lightbox.active {
+            display: flex;
+        }
+
+        #lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        }
+
+        .lightbox-controls {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .lb-btn {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .lb-btn:hover {
+            background: white;
+            transform: scale(1.15);
+        }
+
+        #lb-download {
+            background: #7DD3C5;
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            .gallery-item img { height: 220px; }
+            .lightbox-controls { top: 20px; right: 20px; gap: 12px; }
+            .lb-btn { width: 48px; height: 48px; font-size: 1.5rem; }
+            .page-title { font-size: 2.2rem; margin: 80px 0 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-placeholder-nav">
+                <img src="imgs/LDjTyJmQ.png" alt="ON-COME Logo" class="header-logo">
+            </div>
+            <ul id="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#consortium">Consortium</a></li>
+                <li><a href="index.html#work-packages">Work Packages</a></li>
+                <li><a href="index.html#innovation">Innovation</a></li>
+                <li><a href="index.html#capacity">Capacity Building</a></li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <h1 class="page-title">ON-COME Gallery</h1>
+
+    <div class="gallery" id="gallery"></div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <img id="lightbox-img" src="" alt="Full view">
+        <div class="lightbox-controls">
+            <button id="lb-download" class="lb-btn" title="Download"><i class="fa fa-download"></i></button>
+            <button id="lb-close" class="lb-btn" title="Close">×</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="copyright">
+            <span class="social-links">
+                <h4>Follow us on social media</h4>
+                <div>
+                    <a href="https://www.linkedin.com/company/on-come/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/eu_oncome?s=21" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </span>
+        </div>
+        <span class="contact-info" id="contact">
+            <h4>Get in Contact</h4>
+            <h4>Coordinator</h4>
+            <p>Università Cattolica del Sacro Cuore (UCSC)<br>Largo A. Gemelli 1, 00168 Rome, Italy<br>
+                <a href="mailto:info@oncome.eu">info@oncome.eu</a>
+        </span>
+        <span class="contact-info">
+            <h4>Communication Lead</h4>
+            <p>European Alliance for Personalised Medicine (EAPM)<br>
+                <a href="mailto:denishorgan@euapm.eu">denishorgan@euapm.eu</a>
+            </p>
+        </span>
+        <p>© 2025 ON-COME Consortium. All rights reserved.</p>
+        <div class="co-funded-div">
+            <img src="imgs/Co-fundedEU_POS.jpg" class="co-funded-img" alt="Co-funded by EU">
+            <p>This project has received funding from the European Union’s EU4Health Programme under Grant Agreement No. 101172788...</p>
+        </div>
+    </footer>
+
+    <!-- GALLERY SCRIPT (NO DUPLICATE VARIABLES) -->
+    <script>
+        const gallery = document.getElementById('gallery');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('lb-close');
+        const downloadBtn = document.getElementById('lb-download');
+
+        // Load 150 images
+        for (let i = 1; i <= 150; i++) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+
+            const img = document.createElement('img');
+            img.src = `imgs/eventimages/${i}.jpg`;  // Path change kar lena agar alag folder hai
+            img.alt = `ON-COME Gallery ${i}`;
+            img.loading = 'lazy';
+
+            item.appendChild(img);
+            gallery.appendChild(item);
+
+            item.onclick = function() {
+                lightboxImg.src = this.querySelector('img').src;
+                lightbox.classList.add('active');
+                downloadBtn.href = this.querySelector('img').src;
+                downloadBtn.download = `oncome-gallery-${i}.jpg`;
+            };
+        }
+
+        // Close lightbox
+        closeBtn.onclick = () => lightbox.classList.remove('active');
+        lightbox.onclick = (e) => {
+            if (e.target === lightbox) lightbox.classList.remove('active');
+        };
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+        });
+    </script>
+
+    <!-- Tera common.js (hamburger + smooth scroll) -->
+    <script src="js/common.js?v=0.3"></script>
+</body>
+</html>
