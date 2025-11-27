@@ -60,6 +60,11 @@ nav {
     margin-right: auto;
 }
 
+.header-logo-base {
+    height: 250px;
+    margin-right: auto;
+}
+
 nav ul {
     list-style: none;
     display: flex;

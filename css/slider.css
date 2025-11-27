@@ -79,14 +79,6 @@
     font-weight: 800;
 }
 
-.more-picturebtn a {
-    text-decoration: none;
-    border-radius: 25px;
-    padding: 10px;
-    border: 2px solid #1B4F72;
-    color: #1B4F72;
-}
-
 
 @media (max-width: 400px) {
     .xslider {

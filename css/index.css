@@ -18,6 +18,11 @@
     /* Fixed nav height for padding */
 }
 
+.box-tent {
+    color: #1B4F72;
+    text-decoration: none;
+}
+
 
 /* ===== SECTIONS ===== */
 section {
@@ -325,7 +330,7 @@ th {
 .logo-placeholder {
     width: 150px;
     height: 150px;
-    background: var(--color-white);
+    /* background: var(--color-white); */
     border-radius: 50%;
     display: flex;
     align-items: center;
