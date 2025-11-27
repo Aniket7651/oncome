@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ON-COME - Transforming Psychosocial and Nutritional Care in Paediatric Oncology</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-placeholder-nav"><img src="imgs/LDjTyJmQ.png" alt="ON-COME Logo" class="header-logo"></div>
+            <!-- Small logo/text in nav -->
+            <ul id="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#consortium">Consortium</a></li>
+                <li><a href="index.html#work-packages">Work Packages</a></li>
+                <li><a href="index.html#innovation">Innovation</a></li>
+                <li><a href="index.html#capacity">Capacity Building</a></li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="index.html#deliverables">Deliverables</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <h1>ON-COME Project Overview</h1>
+
+        <p><strong>ON-COME</strong> is a European initiative dedicated to transforming supportive care for children,
+            adolescents and young adults with cancer.</p>
+
+        <p>Funded by the <strong>EU4Health Programme</strong>, the project aims to improve how mental health, cognitive
+            wellbeing, and nutritional needs are addressed during cancer treatment.</p>
+
+        <p>Although survival rates in pediatric oncology have greatly improved in recent decades, nearly <strong>14,000
+                young people are diagnosed with cancer every year in Europe</strong>, and many still face significant
+            emotional, psychological and nutritional challenges throughout their treatment journey.</p>
+
+        <p>Supportive care services—such as psychological counselling, neurocognitive rehabilitation and nutritional
+            guidance—remain unevenly available and often lack standardized protocols across Europe.</p>
+
+        <p><strong>ON-COME was created to address these gaps</strong> and ensure that every young cancer patient
+            receives high-quality, holistic and equitable supportive care, regardless of where they live.</p>
+
+        <p>Cancer impacts far more than physical health. Young patients frequently experience:</p>
+
+        <ul>
+            <li>Anxiety, depression and emotional distress</li>
+            <li>Cognitive difficulties, including problems with memory, concentration and learning</li>
+            <li>Nutritional deficiencies, which may affect treatment tolerance and recovery</li>
+            <li>Inconsistent access to psychosocial and nutritional services across hospitals</li>
+            <li>Limited professional training on integrating supportive care in routine oncology practice</li>
+        </ul>
+
+        <p>While medical treatments continue to advance, the supportive care systems around them have not kept pace. As
+            a result, children and adolescents across Europe receive very different levels of psychological and
+            nutritional support depending on their location.</p>
+
+        <p><strong>ON-COME responds to this urgent need</strong> by designing a standardized, sustainable model for
+            integrating psychosocial, neuropsychological and nutritional interventions into pediatric cancer
+            care—supported by digital tools, professional training, and policy guidance that can be adopted across
+            European healthcare systems.</p>
+    </section>
+
+
+    <footer>
+
+        <div class="copyright">
+            <span class="social-links">
+                <h4>Follow us on social media</h4>
+                <div>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+                </p>
+            </span>
+        </div>
+        <span class="contact-info" id="contact">
+            <h4>Get in Contact</h4>
+            <h4>Coordinator</h4>
+            <p>Università Cattolica del Sacro Cuore (UCSC)<br>Largo A. Gemelli 1, 00168 Rome, Italy<br>
+                <a href="mailto:info@oncome.eu"><i class="fas fa-envelope"></i> info@oncome.eu</a>
+
+        </span>
+        <span class="contact-info">
+            <h4>Communication Lead</h4>
+            <p>European Alliance for Personalised Medicine (EAPM)<br>
+                <a href="mailto:denishorgan@euapm.eu"><i class="fas fa-envelope"></i> denishorgan@euapm.eu</a>
+            </p>
+        </span>
+        <p>&copy; 2025 ON-COME Consortium. All rights reserved.</p>
+        <div class="co-funded-div">
+            <img src="imgs/Co-fundedEU_POS.jpg" class="co-funded-img">
+            <p>This project has received funding from the European Union’s EU4Health Programme under Grant Agreement No.
+                101172788. Views and opinions expressed are those of the authors only and do not necessarily reflect
+                those
+                of the European Union or the European Health and Digital Executive Agency (HADEA).</p>
+        </div>
+        </div>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.partner-slides');
+        const track = document.getElementById('partnerTrack');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const totalSlides = slides.length;
+
+        let autoSlideInterval;
+
+        // Create dots
+        function createDots() {
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+            updateDots();
+        }
+
+        // Update active dot
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlidePosition();
+            updateDots();
+            resetAutoSlide();
+        }
+
+        // Change slide (prev/next)
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            updateSlidePosition();
+            updateDots();
+            resetAutoSlide();
+        }
+
+        // Update slide position
+        function updateSlidePosition() {
+            track.style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+
+        // Auto slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 3000); // Change every 3 seconds
+        }
+
+        // Reset auto slide timer
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // Initialize
+        createDots();
+        startAutoSlide();
+
+        // Pause auto slide on hover
+        const container = document.querySelector('.partner-slideshow-container');
+        container.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        container.addEventListener('mouseleave', startAutoSlide);
+    </script>
+</body>
+
+</html>
