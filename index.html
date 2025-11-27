@@ -44,7 +44,7 @@
     <!-- Home Section -->
     <section id="home">
         <div class="logo-placeholder">
-            <img src="imgs/LDjTyJmQ.png" alt="ON-COME Logo" class="header-logo"> <!-- Placeholder for Logo <i class="fas fa-heartbeat"></i> -->
+            <img src="imgs/withouttextLogo.png" alt="ON-COME Logo" class="header-logo"> <!-- Placeholder for Logo <i class="fas fa-heartbeat"></i> -->
         </div>
         <h1>Welcome to ON-COME</h1>
         <h3>Transforming Psychosocial and Nutritional Care in Paediatric Oncology</h3>
@@ -56,7 +56,7 @@
         <div style="margin-top: 2rem;">
             <a href="#about" class="learn-more-btn"
                 style="background: var(--color-primary); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; transition: background 0.3s ease;">Learn
-                More <i class="fas fa-arrow-right"></i></a>
+                More</a>
         </div>
     </section>
 
@@ -445,26 +445,38 @@
             </div>
         </div>
     </section>
-
-    <!-- <h2>Contact</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>Coordinator</h4>
-                    <p>Università Cattolica del Sacro Cuore (UCSC)<br>Largo A. Gemelli 1, 00168 Rome, Italy<br><i
-                            class="fas fa-envelope"></i> info@oncome.eu | <i class="fas fa-globe"></i> www.oncome.eu</p>
-            </div>
-            <div class="card">
-                <h4>Communication Lead</h4>
-                <p>European Alliance for Personalised Medicine (EAPM)<br><i class="fas fa-envelope"></i>
-                    communications@euapm.eu</p>
-            </div>
-            <div class="card">
-                <h4>Social Media</h4>
-                <p>Follow ON-COME on:<br><i class="fab fa-linkedin"></i> LinkedIn | <i class="fab fa-twitter"></i> X
-                    (Twitter) | <i class="fab fa-youtube"></i> YouTube</p>
-            </div>
+    <link rel="stylesheet" href="css/slider.css">
+    <section id="gallery">
+        <div>
+            <h2>Gallery</h2>
+            <p>In this gallery, you can explore photos from ON-COME's in person events, documenting the
+                 project's journey and the collaboration within its consortium, from the kick-off meeting 
+                 held in Rome in October 2025 to key milestones throughout the project's lifecycle.</p>
         </div>
-     -->
+
+        
+        <div class="xslider">
+            <div class="xtrack" id="xtrack">
+                <div class="xitem"><img src="imgs/eventimages/DSC03727.jpg" alt="1"></div>
+                <div class="xitem"><img src="imgs/eventimages/DSC03728.jpg" alt="2"></div>
+                <div class="xitem"><img src="imgs/eventimages/DSC03729.jpg" alt="3"></div>
+                <div class="xitem"><img src="imgs/eventimages/DSC03768.jpg" alt="4"></div>
+                <div class="xitem"><img src="imgs/eventimages/DSC03742.jpg" alt="5"></div>
+            </div>
+
+            <button class="xbtn xprev" onclick="moveX(-1)">❮</button>
+            <button class="xbtn xnext" onclick="moveX(1)">❯</button>
+
+            <div class="xdots" id="xdots"></div>
+        </div>
+        <div class="more-picturebtn">
+            <a href="">Explore ON-COME Kick-off Meeting Picture's</a>
+        </div>
+
+    </section>
+    
+
+
     <footer>
         <!-- <div class="contact">
             <div>
@@ -501,8 +513,8 @@
                     </p>
             </span>
             </div>
-            <span class="contact-info">
-                    <h2>Get in Contact</h2>
+            <span class="contact-info" id="contact">
+                    <h4>Get in Contact</h4>
                     <h4>Coordinator</h4>
                     <p>Università Cattolica del Sacro Cuore (UCSC)<br>Largo A. Gemelli 1, 00168 Rome, Italy<br>
                         <a href="mailto:info@oncome.eu"><i class="fas fa-envelope"></i> info@oncome.eu</a>
@@ -511,14 +523,17 @@
                 <span class="contact-info">
                     <h4>Communication Lead</h4>
                     <p>European Alliance for Personalised Medicine (EAPM)<br>
-                        <a href="mailto:communications@euapm.eu"><i class="fas fa-envelope"></i> communications@euapm.eu</a>
+                        <a href="mailto:denishorgan@euapm.eu"><i class="fas fa-envelope"></i> denishorgan@euapm.eu</a>
                     </p>
                 </span>
             <p>&copy; 2025 ON-COME Consortium. All rights reserved.</p>
-            <p>This project has received funding from the European Union’s EU4Health Programme under Grant Agreement No.
-                101172788. Views and opinions expressed are those of the authors only and do not necessarily reflect
-                those
-                of the European Union or the European Health and Digital Executive Agency (HADEA).</p>
+            <div class="co-funded-div">
+                <img src="imgs/Co-fundedEU_POS.jpg" class="co-funded-img">
+                <p>This project has received funding from the European Union’s EU4Health Programme under Grant Agreement No.
+                    101172788. Views and opinions expressed are those of the authors only and do not necessarily reflect
+                    those
+                    of the European Union or the European Health and Digital Executive Agency (HADEA).</p>
+            </div>
         </div>
     </footer>
 

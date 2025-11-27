@@ -352,12 +352,10 @@ th {
     0%,
     100% {
         transform: scale(1);
-        box-shadow: 2px 2px 2px #1B4F72;
     }
 
     50% {
         transform: scale(1.05);
-        box-shadow: 2.5px 2.5px 2.5px #1B4F72;
     }
 }
 

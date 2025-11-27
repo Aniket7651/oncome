@@ -216,3 +216,21 @@ footer .contact {
 .social-links div a:hover {
     color: var(--color-primary);
 }
+
+.co-funded-div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-align: left;
+}
+
+.co-funded-img {
+    width: 250px;
+    height: auto;
+}
+
+@media (max-width: 400px) {
+    .co-funded-div {
+        flex-direction: column;
+    }
+}

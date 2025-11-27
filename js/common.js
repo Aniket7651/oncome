@@ -75,3 +75,42 @@ function updateSlide() {
     dotsContainer.querySelectorAll("span")
         .forEach((dot, idx) => dot.classList.toggle("active", idx === currentSlide));
 }
+
+
+
+const xtrack = document.getElementById('xtrack');
+    const xdotsContainer = document.getElementById('xdots');
+    let xindex = 0;
+    const xtotal = xtrack.children.length;
+
+    // Dots create karo
+    for (let i = 0; i < xtotal; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'xdot';
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = () => goToX(i);
+      xdotsContainer.appendChild(dot);
+    }
+
+    const xdots = document.querySelectorAll('.xdot');
+
+    function moveX(n) {
+      xindex += n;
+      if (xindex >= xtotal) xindex = 0;
+      if (xindex < 0) xindex = xtotal - 1;
+      updateX();
+    }
+
+    function goToX(n) {
+      xindex = n;
+      updateX();
+    }
+
+    function updateX() {
+      xtrack.style.transform = `translateX(-${xindex * 100}%)`;
+      xdots.forEach(d => d.classList.remove('active'));
+      xdots[xindex].classList.add('active');
+    }
+
+    // Auto play
+    setInterval(() => moveX(1), 4500);
