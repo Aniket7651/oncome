@@ -40,13 +40,11 @@ nav {
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 2rem;
     height: 100%;
+    padding: 0px 1rem;
 }
 
 .logo-placeholder-nav {
