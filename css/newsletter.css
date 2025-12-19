@@ -1,0 +1,35 @@
+
+section div {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 25px;
+    background-color: var(--color-white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.title-newsletter {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
